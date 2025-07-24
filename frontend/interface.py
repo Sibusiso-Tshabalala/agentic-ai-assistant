@@ -1,14 +1,11 @@
 import streamlit as st
-try:
-    from core.langgraph_flow import build_workflow
-except ModuleNotFoundError:
-    st.error("Module 'core.langgraph_flow' not found. Please check your project structure and PYTHONPATH.")
-    st.stop()
 from PIL import Image
 import datetime
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+from core.langgraph_flow import build_workflow
+
 
 
 # 🎨 Page Config
