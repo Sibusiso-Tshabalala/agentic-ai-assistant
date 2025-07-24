@@ -1,0 +1,6 @@
+openai
+langgraph
+requests
+python-dotenv
+streamlit        # or fastapi if you prefer
+amadeus
