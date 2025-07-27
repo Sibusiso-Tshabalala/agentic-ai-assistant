@@ -1,5 +1,20 @@
-from openai import OpenAI
 import os
+from openai import OpenAI
+from dotenv import load_dotenv
+import streamlit as st
+
+
+# Load .env if present
+load_dotenv()
+
+# Prefer streamlit secrets, fallback to env var
+api_key = st.secrets.get("OPENAI_API_KEY", os.getenv("OPENAI_API_KEY"))
+
+if not api_key:
+    raise ValueError("OPENAI_API_KEY not found in environment or secrets.toml")
+
+client = OpenAI(api_key=api_key)
+
 
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
