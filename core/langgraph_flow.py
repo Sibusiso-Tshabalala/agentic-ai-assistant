@@ -24,5 +24,5 @@ def build_workflow():
     graph.add_edge("flight", "hotel")
     graph.add_edge("hotel", "calendar")
     graph.set_entry_point("planner")
-
+    compiled_graph = graph.compile()
     return graph
