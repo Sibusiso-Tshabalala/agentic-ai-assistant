@@ -1,5 +1,5 @@
 import os
-from openai import OpenAI
+from openai import openai
 from dotenv import load_dotenv
 import streamlit as st
 
@@ -13,10 +13,10 @@ api_key = st.secrets.get("OPENAI_API_KEY", os.getenv("OPENAI_API_KEY"))
 if not api_key:
     raise ValueError("OPENAI_API_KEY not found in environment or secrets.toml")
 
-client = OpenAI(api_key=api_key)
+client =openai(api_key=api_key)
 
 
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+client = openai(api_key=os.getenv("OPENAI_API_KEY"))
 
 def planner_agent(user_input: str) -> dict:
     print("[Planner Agent] Interpreting user input...")
