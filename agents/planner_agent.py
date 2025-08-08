@@ -10,7 +10,7 @@ load_dotenv()
 # Prefer streamlit secrets, fallback to env var
 api_key = st.secrets.get("OPENAI_API_KEY", os.getenv("OPENAI_API_KEY"))
 
-if not api_key:
+if not api_key: 
     raise ValueError("OPENAI_API_KEY not found in environment or secrets.toml")
 
 client =openai(api_key=api_key)
@@ -44,7 +44,7 @@ Return only the JSON.
 
     try:
         output = response.choices[0].message.content.strip()
-        data = eval(output)  # safer: use `json.loads()` if GPT is clean
+        data = eval(output)  
         return data
     except Exception as e:
         print("Parsing error:", e)
